@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="A modern browser-based Snake Game with a persistent leaderboard."
+>
+
+<title>Snake Game</title>
+
+<link
+    rel="stylesheet"
+    href="css/style.css"
+>
+```
+
+</head>
+
+<body>
+
+```
+<main class="game-container">
+
+    <!-- Header -->
+
+    <header class="game-header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🐍
+            </div>
+
+            <div>
+                <h1>Snake</h1>
+                <p>Classic Arcade</p>
+            </div>
+
+        </div>
+
+        <div class="game-info">
+
+            <div class="info-card">
+
+                <span class="info-label">
+                    SCORE
+                </span>
+
+                <span id="score">
+                    0
+                </span>
+
+            </div>
+
+            <div class="info-card">
+
+                <span class="info-label">
+                    STATUS
+                </span>
+
+                <span id="status">
+                    Playing
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- Player -->
+
+    <section class="player-section">
+
+        <label for="playerName">
+            PLAYER NAME
+        </label>
+
+        <div class="player-input-wrapper">
+
+            <span class="input-icon">
+                👤
+            </span>
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="Enter your name"
+                maxlength="50"
+                autocomplete="off"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- Game Board -->
+
+    <section class="game-board-wrapper">
+
+        <div class="board-glow"></div>
+
+        <canvas
+            id="gameCanvas"
+            width="800"
+            height="600"
+        ></canvas>
+
+        <div
+            id="gameOverlay"
+            class="game-overlay hidden"
+        >
+
+            <div class="overlay-card">
+
+                <div class="overlay-icon">
+                    🐍
+                </div>
+
+                <h2 id="overlayTitle">
+                    GAME OVER
+                </h2>
+
+                <p id="overlayMessage">
+                    Press R to Restart
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Mobile Controls -->
+
+    <section class="controls">
+
+        <button
+            data-direction="up"
+            aria-label="Move Up"
+        >
+            ↑
+        </button>
+
+        <div>
+
+            <button
+                data-direction="left"
+                aria-label="Move Left"
+            >
+                ←
+            </button>
+
+            <button
+                data-direction="down"
+                aria-label="Move Down"
+            >
+                ↓
+            </button>
+
+            <button
+                data-direction="right"
+                aria-label="Move Right"
+            >
+                →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Leaderboard -->
+
+    <section class="leaderboard-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-kicker">
+                    HALL OF FAME
+                </span>
+
+                <h2>
+                    🏆 Leaderboard
+                </h2>
+
+            </div>
+
+            <span class="leaderboard-badge">
+                TOP 10
+            </span>
+
+        </div>
+
+        <div class="leaderboard-header">
+
+            <span>#</span>
+            <span>PLAYER</span>
+            <span>SCORE</span>
+
+        </div>
+
+        <div id="leaderboard">
+
+            <p class="leaderboard-loading">
+                Loading leaderboard...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="keyboard-hints">
+
+            <span>
+                <kbd>↑</kbd>
+                <kbd>↓</kbd>
+                <kbd>←</kbd>
+                <kbd>→</kbd>
+                / WASD
+            </span>
+
+            <span>
+                <kbd>SPACE</kbd>
+                Pause
+            </span>
+
+            <span>
+                <kbd>R</kbd>
+                Restart
+            </span>
+
+        </div>
+
+        <p class="footer-credit">
+            Built with JavaScript • FastAPI • SQLite
+        </p>
+
+    </footer>
+
+</main>
+
+
+<!-- JavaScript -->
+
+<script src="js/core/constants.js"></script>
+
+<script src="js/system/direction.js"></script>
+
+<script src="js/entities/snake.js"></script>
+<script src="js/entities/food.js"></script>
+
+<script src="js/system/score.js"></script>
+<script src="js/system/collision.js"></script>
+
+<script src="js/core/game_state.js"></script>
+
+<script src="js/ui/hud.js"></script>
+<script src="js/ui/ui.js"></script>
+
+<script src="js/api/api-client.js"></script>
+
+<script src="js/leaderboard.js"></script>
+
+<script src="js/core/game.js"></script>
+```
+
+</body>
+
+</html>

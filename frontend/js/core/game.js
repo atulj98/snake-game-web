@@ -6,6 +6,11 @@ class Game {
             document.getElementById(
                 "gameCanvas"
             );
+        
+        this.playerNameInput =
+            document.getElementById(
+                "playerName"
+            );
 
         this.ctx =
             this.canvas.getContext("2d");
@@ -303,15 +308,49 @@ class Game {
         }
     }
 
-    gameOver() {
+    getPlayerName() {
+
+        const playerName =
+            this.playerNameInput.value.trim();
+    
+        if (playerName === "") {
+            return "Anonymous";
+        }
+    
+        return playerName;
+    }
+
+    async gameOver() {
 
         this.state =
             GameState.GAME_OVER;
-
+    
         this.hud.updateStatus(
             "Game Over"
         );
-
+    
+        const playerName =
+            this.getPlayerName();
+    
+        try {
+    
+            await saveScore(
+                playerName,
+                this.score.value
+            );
+    
+            console.log(
+                "Score saved successfully"
+            );
+    
+        } catch (error) {
+    
+            console.error(
+                "Failed to save score:",
+                error
+            );
+        }
+    
         this.ui.showOverlay(
             "GAME OVER",
             `Score: ${this.score.value} • Press R to Restart`
@@ -363,5 +402,10 @@ class Game {
         this.draw();
     }
 }
+
+const leaderboard =
+    new Leaderboard();
+
+leaderboard.load();
 
 new Game();
