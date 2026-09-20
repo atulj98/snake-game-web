@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Snake Game</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <header class="game-header">
+            <h1>Snake Game</h1>
+
+            <div class="game-info">
+                <span id="score">Score: 0</span>
+                <span id="status">Playing</span>
+            </div>
+        </header>
+
+        <section class="game-board-wrapper">
+
+            <canvas
+                id="gameCanvas"
+                width="800"
+                height="600"
+            ></canvas>
+
+            <div
+                id="gameOverlay"
+                class="game-overlay hidden"
+            >
+                <h2 id="overlayTitle">GAME OVER</h2>
+
+                <p id="overlayMessage">
+                    Press R to Restart
+                </p>
+            </div>
+
+        </section>
+
+        <section class="controls">
+
+            <button data-direction="up">↑</button>
+
+            <div>
+                <button data-direction="left">←</button>
+                <button data-direction="down">↓</button>
+                <button data-direction="right">→</button>
+            </div>
+
+        </section>
+
+        <footer>
+            <p>
+                Arrow Keys / WASD to move
+                <br>
+                Space to Pause • R to Restart
+            </p>
+        </footer>
+
+    </main>
+
+    <script src="js/core/constants.js"></script>
+    <script src="js/system/direction.js"></script>
+    <script src="js/entities/snake.js"></script>
+    <script src="js/entities/food.js"></script>
+    <script src="js/system/score.js"></script>
+    <script src="js/system/collision.js"></script>
+    <script src="js/core/game_state.js"></script>
+    <script src="js/ui/hud.js"></script>
+    <script src="js/ui/ui.js"></script>
+    <script src="js/core/game.js"></script>
+
+</body>
+</html>
