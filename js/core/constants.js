@@ -1,5 +1,5 @@
-const GAME_WIDTH = 800;
-const GAME_HEIGHT = 600;
+const GAME_WIDTH = 600;
+const GAME_HEIGHT = 400;
 
 const CELL_SIZE = 20;
 
