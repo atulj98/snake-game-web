@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://snake-game-web-zl1d.onrender.com";
 
 
 async function getLeaderboard(limit = 10, offset = 0) {
