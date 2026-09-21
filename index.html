@@ -82,7 +82,7 @@
 
     <!-- Player -->
 
-    <section class="player-section">
+    <!-- <section class="player-section">
 
         <label for="playerName">
             PLAYER NAME
@@ -104,7 +104,7 @@
 
         </div>
 
-    </section>
+    </section> -->
 
 
     <!-- Game Board -->
@@ -118,6 +118,54 @@
             width="800"
             height="600"
         ></canvas>
+
+    <div
+    id="startOverlay"
+    class="game-overlay"
+    >
+    <div class="overlay-card start-card">
+
+        <div class="overlay-icon">
+            🐍
+        </div>
+
+        <h2>
+            SNAKE
+        </h2>
+
+        <p class="start-subtitle">
+            Classic Arcade
+        </p>
+
+        <div class="start-form">
+
+            <label for="playerName">
+                ENTER YOUR NAME
+            </label>
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="Your name"
+                maxlength="50"
+                autocomplete="off"
+            >
+
+            <button
+                id="startGameButton"
+                type="button"
+            >
+                START GAME
+            </button>
+
+        </div>
+
+        <div class="start-hint">
+            Use Arrow Keys or WASD to move
+        </div>
+
+    </div>
+</div>
 
         <div
             id="gameOverlay"

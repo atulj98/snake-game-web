@@ -1,6 +1,9 @@
 class Game {
 
-    constructor() {
+    constructor(leaderboard) {
+
+        this.leaderboard =
+            leaderboard;
 
         this.canvas =
             document.getElementById(
@@ -11,6 +14,16 @@ class Game {
             document.getElementById(
                 "playerName"
             );
+
+        this.startOverlay =
+            document.getElementById(
+                "startOverlay"
+        );
+        
+        this.startGameButton =
+            document.getElementById(
+                "startGameButton"
+        );
 
         this.ctx =
             this.canvas.getContext("2d");
@@ -31,14 +44,18 @@ class Game {
             new GameUI();
 
         this.state =
-            GameState.PLAYING;
-
+            GameState.PAUSED;
+        
         this.running = true;
-
-        this.food.spawn(this.snake);
-
+        
+        this.food.spawn(
+            this.snake
+        );
+        
         this.bindEvents();
-
+        
+        this.showStartScreen();
+        
         this.start();
     }
 
@@ -75,9 +92,70 @@ class Game {
                     }
                 );
             });
+        
+        this.startGameButton.addEventListener(
+                "click",
+                () => {
+            
+                    this.startGame();
+                }
+        );
+    }
+
+    showStartScreen() {
+
+        this.startOverlay.classList.remove(
+            "hidden"
+        );
+    
+        this.playerNameInput.focus();
+    }
+
+    startGame() {
+
+        const playerName =
+            this.playerNameInput.value.trim();
+    
+        if (playerName === "") {
+    
+            this.playerNameInput.focus();
+    
+            return;
+        }
+    
+        this.startOverlay.classList.add(
+            "hidden"
+        );
+    
+        this.state =
+            GameState.PLAYING;
+    
+        this.hud.updateScore(
+            this.score.value
+        );
+    
+        this.hud.updateStatus(
+            "Playing"
+        );
     }
 
     handleKeyboardInput(event) {
+
+        if (
+            !this.startOverlay.classList.contains(
+                "hidden"
+            )
+        ) {
+        
+            if (event.key === "Enter") {
+        
+                event.preventDefault();
+        
+                this.startGame();
+            }
+        
+            return;
+        }
 
         // Arrow keys scroll the page by default, which
         // drags the board around on shorter screens.
@@ -308,16 +386,10 @@ class Game {
         }
     }
 
+    
+    
     getPlayerName() {
-
-        const playerName =
-            this.playerNameInput.value.trim();
-    
-        if (playerName === "") {
-            return "Anonymous";
-        }
-    
-        return playerName;
+        return this.playerNameInput.value.trim();
     }
 
     async gameOver() {
@@ -338,7 +410,9 @@ class Game {
                 playerName,
                 this.score.value
             );
-    
+            
+            await this.leaderboard.load();
+
             console.log(
                 "Score saved successfully"
             );
@@ -408,4 +482,4 @@ const leaderboard =
 
 leaderboard.load();
 
-new Game();
+new Game(leaderboard);
