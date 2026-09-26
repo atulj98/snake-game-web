@@ -110,21 +110,40 @@ class Snake {
     }
 
     draw(ctx) {
-
         this.body.forEach(
             (segment, index) => {
-
+    
+                // Snake body/head
                 ctx.fillStyle =
                     index === 0
                         ? SNAKE_HEAD_COLOR
                         : SNAKE_COLOR;
-
+    
                 ctx.fillRect(
                     segment.x,
                     segment.y,
                     CELL_SIZE - 1,
                     CELL_SIZE - 1
                 );
+    
+                // Eyes only on the head
+                if (index === 0) {
+                    ctx.fillStyle = SNAKE_EYES;
+    
+                    ctx.fillRect(
+                        segment.x + 5,
+                        segment.y + 5,
+                        3,
+                        3
+                    );
+    
+                    ctx.fillRect(
+                        segment.x + CELL_SIZE - 8,
+                        segment.y + 5,
+                        3,
+                        3
+                    );
+                }
             }
         );
     }

@@ -9,6 +9,8 @@ const BACKGROUND_COLOR = "#141414";
 
 const SNAKE_COLOR = "#32CD32";
 
+const SNAKE_EYES = "#9966ff"
+
 const SNAKE_HEAD_COLOR = "#70E070";
 
 const FOOD_COLOR = "#DC3232";
