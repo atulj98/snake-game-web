@@ -1,7 +1,7 @@
-const GAME_WIDTH = 700;
-const GAME_HEIGHT = 500;
+const GAME_WIDTH = 800;
+const GAME_HEIGHT = 600;
 
-const CELL_SIZE = 15;
+const CELL_SIZE = 20;
 
 const FPS = 10;
 
