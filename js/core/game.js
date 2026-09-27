@@ -460,7 +460,7 @@ class Game {
     start() {
 
         const interval =
-            1000 / FPS;
+            (1000 / FPS) + 10;
 
         setInterval(
             () => {
