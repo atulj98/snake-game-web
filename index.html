@@ -36,6 +36,7 @@
 
 <header class="game-header">
 
+
     <div class="brand">
 
         <div class="brand-icon">
@@ -49,36 +50,57 @@
 
     </div>
 
+    <div class="header-actions">
 
-    <div class="game-info">
-
-        <div class="info-card">
-
-            <span class="info-label">
-                SCORE
-            </span>
-
-            <span id="score">
-                0
-            </span>
-
+        <div class="game-info">
+    
+            <div class="info-card">
+    
+                <span class="info-label">
+                    SCORE
+                </span>
+    
+                <span id="score">
+                    0
+                </span>
+    
+            </div>
+    
+    
+            <div class="info-card">
+    
+                <span class="info-label">
+                    STATUS
+                </span>
+    
+                <span id="status">
+                    Ready
+                </span>
+    
+            </div>
+    
         </div>
-
-
-        <div class="info-card">
-
-            <span class="info-label">
-                STATUS
+    
+    
+        <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch theme"
+        >
+            <span
+                class="theme-toggle-icon"
+                aria-hidden="true"
+            >
+                ☀️
             </span>
-
-            <span id="status">
-                Ready
+    
+            <span class="theme-toggle-text">
+                Light
             </span>
-
-        </div>
-
+        </button>
+    
     </div>
-
 </header>
 
 <div class="game-layout">
@@ -324,6 +346,7 @@
 <script src="js/api/api-client.js"></script>
 
 <script src="js/leaderboard.js"></script>
+<script src="js/ui/theme.js"></script>
 
 <script src="js/core/game.js"></script>
 
