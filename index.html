@@ -30,207 +30,199 @@
 
 <main class="game-container">
 
+    <!-- Main Game Layout -->
+
     <!-- Header -->
 
-    <header class="game-header">
+<header class="game-header">
 
-        <div class="brand">
+    <div class="brand">
 
-            <div class="brand-icon">
-                🐍
-            </div>
-
-            <div>
-                <h1>Snake</h1>
-                <p>Classic Arcade</p>
-            </div>
-
-        </div>
-
-        <div class="game-info">
-
-            <div class="info-card">
-
-                <span class="info-label">
-                    SCORE
-                </span>
-
-                <span id="score">
-                    0
-                </span>
-
-            </div>
-
-            <div class="info-card">
-
-                <span class="info-label">
-                    STATUS
-                </span>
-
-                <span id="status">
-                    Playing
-                </span>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <!-- Player -->
-
-    <!-- <section class="player-section">
-
-        <label for="playerName">
-            PLAYER NAME
-        </label>
-
-        <div class="player-input-wrapper">
-
-            <span class="input-icon">
-                👤
-            </span>
-
-            <input
-                type="text"
-                id="playerName"
-                placeholder="Enter your name"
-                maxlength="50"
-                autocomplete="off"
-            >
-
-        </div>
-
-    </section> -->
-
-
-    <!-- Game Board -->
-
-    <section class="game-board-wrapper">
-
-        <div class="board-glow"></div>
-
-        <canvas
-            id="gameCanvas"
-            width="800"
-            height="600"
-        ></canvas>
-
-    <div
-    id="startOverlay"
-    class="game-overlay"
-    >
-    <div class="overlay-card start-card">
-
-        <div class="overlay-icon">
+        <div class="brand-icon">
             🐍
         </div>
 
-        <h2>
-            SNAKE
-        </h2>
-
-        <p class="start-subtitle">
-            Classic Arcade
-        </p>
-
-        <div class="start-form">
-
-            <label for="playerName">
-                ENTER YOUR NAME
-            </label>
-
-            <input
-                type="text"
-                id="playerName"
-                placeholder="Your name"
-                maxlength="50"
-                autocomplete="off"
-            >
-
-            <button
-                id="startGameButton"
-                type="button"
-            >
-                START GAME
-            </button>
-
-        </div>
-
-        <div class="start-hint">
-            Use Arrow Keys or WASD to move
+        <div>
+            <h1>Snake</h1>
+            <p>Classic Arcade</p>
         </div>
 
     </div>
-</div>
 
-        <div
-            id="gameOverlay"
-            class="game-overlay hidden"
-        >
 
-            <div class="overlay-card">
+    <div class="game-info">
 
-                <div class="overlay-icon">
-                    🐍
+        <div class="info-card">
+
+            <span class="info-label">
+                SCORE
+            </span>
+
+            <span id="score">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <span class="info-label">
+                STATUS
+            </span>
+
+            <span id="status">
+                Ready
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+<div class="game-layout">
+
+    <!-- Left Side: Game -->
+
+    <div class="game-column">
+
+        <!-- Game Board -->
+
+        <section class="game-board-wrapper">
+
+            <div class="board-glow"></div>
+
+            <canvas
+                id="gameCanvas"
+                width="800"
+                height="600"
+            ></canvas>
+
+
+            <!-- Start Screen -->
+
+            <div
+                id="startOverlay"
+                class="game-overlay"
+            >
+
+                <div class="overlay-card start-card">
+
+                    <div class="overlay-icon">
+                        🐍
+                    </div>
+
+                    <h2>
+                        SNAKE
+                    </h2>
+
+                    <p class="start-subtitle">
+                        Classic Arcade
+                    </p>
+
+                    <div class="start-form">
+
+                        <label for="playerName">
+                            ENTER YOUR NAME
+                        </label>
+
+                        <input
+                            type="text"
+                            id="playerName"
+                            placeholder="Your name"
+                            maxlength="50"
+                            autocomplete="off"
+                        >
+
+                        <button
+                            id="startGameButton"
+                            type="button"
+                        >
+                            START GAME
+                        </button>
+
+                    </div>
+
+                    <div class="start-hint">
+                        Use Arrow Keys or WASD to move
+                    </div>
+
                 </div>
-
-                <h2 id="overlayTitle">
-                    GAME OVER
-                </h2>
-
-                <p id="overlayMessage">
-                    Press R to Restart
-                </p>
 
             </div>
 
-        </div>
 
-    </section>
+            <!-- Game Over / Pause Overlay -->
+
+            <div
+                id="gameOverlay"
+                class="game-overlay hidden"
+            >
+
+                <div class="overlay-card">
+
+                    <div class="overlay-icon">
+                        🐍
+                    </div>
+
+                    <h2 id="overlayTitle">
+                        GAME OVER
+                    </h2>
+
+                    <p id="overlayMessage">
+                        Press R to Restart
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
 
 
-    <!-- Mobile Controls -->
+        <!-- Mobile Controls -->
 
-    <section class="controls">
-
-        <button
-            data-direction="up"
-            aria-label="Move Up"
-        >
-            ↑
-        </button>
-
-        <div>
+        <section class="controls">
 
             <button
-                data-direction="left"
-                aria-label="Move Left"
+                data-direction="up"
+                aria-label="Move Up"
             >
-                ←
+                ↑
             </button>
 
-            <button
-                data-direction="down"
-                aria-label="Move Down"
-            >
-                ↓
-            </button>
+            <div>
 
-            <button
-                data-direction="right"
-                aria-label="Move Right"
-            >
-                →
-            </button>
+                <button
+                    data-direction="left"
+                    aria-label="Move Left"
+                >
+                    ←
+                </button>
 
-        </div>
+                <button
+                    data-direction="down"
+                    aria-label="Move Down"
+                >
+                    ↓
+                </button>
 
-    </section>
+                <button
+                    data-direction="right"
+                    aria-label="Move Right"
+                >
+                    →
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
 
 
-    <!-- Leaderboard -->
+    <!-- Right Side: Leaderboard -->
 
     <section class="leaderboard-section">
 
@@ -254,13 +246,17 @@
 
         </div>
 
+
         <div class="leaderboard-header">
 
             <span>#</span>
+
             <span>PLAYER</span>
+
             <span>SCORE</span>
 
         </div>
+
 
         <div id="leaderboard">
 
@@ -272,7 +268,7 @@
 
     </section>
 
-
+</div>
     <!-- Footer -->
 
     <footer>
